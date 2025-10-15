@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
         if (isChasing == true)
         {
 
-            if (player.position.x > transform.position.x && facingDirection == 1 || player.position.x < transform.position.x && facingDirection == -1);
+            if (player.position.x > transform.position.x && facingDirection == 1 || player.position.x < transform.position.x && facingDirection == -1)
             {
                 Flip();
             }
@@ -36,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
     void Flip()
     {
         facingDirection *= -1;
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
