@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 	public int currentHealth;
 	public int maxHealth;
 	public TMP_Text healthText;
+	public Animator healthTextAnim;
 
 	private void Start()
 	{
@@ -15,7 +16,10 @@ public class PlayerHealth : MonoBehaviour
 	public void ChangeHealth(int amount)
 	{
 		currentHealth += amount;
-		healthText.text = "HP:" + currentHealth + " / " + maxHealth;
+
+		healthTextAnim.Play("TextUpdate");
+
+		healthText.text = "HP: " + currentHealth + " / " + maxHealth;
 
 		if (currentHealth <= 0)
 		{
