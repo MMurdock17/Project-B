@@ -4,23 +4,26 @@ public class EnemyMovement : MonoBehaviour
 {
 
     public float speed;
-    private bool isChasing;
     private Rigidbody2D rb;
     private Transform player;
     private int facingDirection = 1;
+    private Animator anim;
+    private EnemyState enemyState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        ChangeState(EnemyState.Idle);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isChasing == true)
+        if (enemyState == EnemyState.Chasing)
         {
 
             if (player.position.x > transform.position.x && facingDirection == 1 || player.position.x < transform.position.x && facingDirection == -1)
@@ -47,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 player = collision.transform;
             }
-            isChasing = true;
+            ChangeState(EnemyState.Chasing);
         }
     }
 
@@ -56,8 +59,38 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             rb.linearVelocity = Vector2.zero;
-            isChasing = false;
+            ChangeState(EnemyState.Idle);
         }
     }
 
+    void ChangeState(EnemyState newState)
+    {
+        if (enemyState == EnemyState.Idle)
+        {
+            anim.SetBool("isIdle", false);
+        }
+        else if (enemyState == EnemyState.Chasing)
+        {
+            anim.SetBool("isChasing", false);
+        }
+
+        enemyState = newState;
+
+        if (enemyState == EnemyState.Idle)
+        {
+            anim.SetBool("isIdle", true);
+        }
+        else if (enemyState == EnemyState.Chasing)
+        {
+            anim.SetBool("isChasing", true);
+        }
+
+    }
+
+}
+
+public enum EnemyState
+{
+    Idle,
+    Chasing,
 }
