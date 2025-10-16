@@ -11,6 +11,16 @@ public int facingDirection = 1;
 
 private bool isKnockedBack;
 
+public PlayerCombat playerCombat;
+
+private void Update()
+{
+    if (Input.GetButtonDown("Attack"))
+    {
+        playerCombat.Attack();
+    }
+}
+
 
     // Update is called 50x per frame
     void FixedUpdate()
