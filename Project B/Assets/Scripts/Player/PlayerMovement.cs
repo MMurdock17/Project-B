@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 
-public float speed = 5;
 public Rigidbody2D rb;
 public Animator anim;
 public int facingDirection = 1;
@@ -38,7 +37,7 @@ private void Update()
         anim.SetFloat("horizontal", Mathf.Abs(horizontal));
         anim.SetFloat("vertical", Mathf.Abs(vertical));
 
-        rb.linearVelocity = new Vector2(horizontal, vertical) * speed;
+        rb.linearVelocity = new Vector2(horizontal, vertical) * StatsManager.Instance.speed;
         }
     }
 

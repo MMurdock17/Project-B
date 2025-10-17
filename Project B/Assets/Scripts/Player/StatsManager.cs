@@ -2,15 +2,31 @@ using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static StatsManager Instance;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Combat Stats")]
+    public int damage;
+    public float weaponRange;
+    public float knockbackForce;
+    public float knockbackTime;
+    public float stunTime;
+
+    [Header("Movement Stats")]
+    public int speed;
+
+    [Header("Health Stats")]
+    public int maxHealth;
+    public int currentHealth;
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
