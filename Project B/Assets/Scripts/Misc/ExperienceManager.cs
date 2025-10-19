@@ -44,7 +44,7 @@ public class ExperienceManager : MonoBehaviour
     {
         expSlider.maxValue = expToLevel;
         expSlider.value = currentExp;
-        currentLevelText.text + "Level: " + level;
+        currentLevelText.text = "Level: " + level;
     }
 
 }
