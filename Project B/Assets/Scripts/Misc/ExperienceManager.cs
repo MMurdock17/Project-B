@@ -31,6 +31,7 @@ public class ExperienceManager : MonoBehaviour
         {
             LevelUp();
         }
+        UpdateUI();
     }
 
     private void LevelUp()
@@ -45,6 +46,7 @@ public class ExperienceManager : MonoBehaviour
         expSlider.maxValue = expToLevel;
         expSlider.value = currentExp;
         currentLevelText.text = "Level: " + level;
+        UpdateUI();
     }
 
 }
