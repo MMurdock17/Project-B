@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    //getting variables set up
     public int damage = 1;
     public Transform attackPoint;
     public float weaponRange;
@@ -17,6 +18,7 @@ public class EnemyCombat : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            // decreasing player's health on hit
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
             hits[0].GetComponent<PlayerMovement>().Knockback(transform, knockbackForce, stunTime);
         }

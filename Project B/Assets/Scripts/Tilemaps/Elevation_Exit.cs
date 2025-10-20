@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Elevation_Exit : MonoBehaviour
 {
+    //creating array variables
     public Collider2D[] wallColliders;
     public Collider2D[] boundaryColliders;
 
-
+    //handles exiting elevation
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

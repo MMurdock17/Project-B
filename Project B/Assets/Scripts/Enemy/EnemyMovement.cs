@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    //variables
     public float speed;
     public float attackRange = 2;
     public float attackCooldown = 2;
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //calling variables
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         ChangeState(EnemyState.Idle);
@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //allowing for cooldown between enemy attacks
         if (enemyState != EnemyState.Knockback)
         {
          CheckForPlayer();
@@ -54,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
         
-
+        //setting position of enemy; allowing them to chase the player
         if (player.position.x > transform.position.x && facingDirection == 1 || player.position.x < transform.position.x && facingDirection == -1)
             {
                 Flip();
@@ -66,10 +67,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Flip()
     {
+        //flips enemy sprite
         facingDirection *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
+    //checks whether the player is in collider; prompts chase and attack
     private void CheckForPlayer()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, playerDetectRange, playerLayer);
@@ -98,7 +101,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     
-
+    //changing states of enemy based on circumstances
     public void ChangeState(EnemyState newState)
     {
         if (enemyState == EnemyState.Idle)
@@ -132,7 +135,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
 }
-
+//adding enumerations
 public enum EnemyState
 {
     Idle,

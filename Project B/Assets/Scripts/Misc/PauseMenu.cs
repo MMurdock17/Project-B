@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-
+    //setting up different pause menu options; each performs a different action
     public void Pause()
     {
         pauseMenu.SetActive(true);

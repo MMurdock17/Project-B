@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+	//variables
 	public Transform attackPoint;
 	public LayerMask enemyLayer;
 	public AudioClip swordSound;
@@ -17,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
 		}
 	}
 
+	//attack cooldown timer and swinging sound plays
 	public void Attack()
 	{
 		if (timer <= 0)
@@ -29,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
 
 	public void DealDamage()
 	{
+		//handles dealing damage to enemies
 		Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, StatsManager.Instance.weaponRange, enemyLayer);
 
 			if (enemies.Length > 0)
@@ -38,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
 			}
 	}
 
+	//returns to idle
 	public void FinishAttacking()
 	{
 		anim.SetBool("isAttacking", false);

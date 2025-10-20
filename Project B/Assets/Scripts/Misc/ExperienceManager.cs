@@ -4,6 +4,7 @@ using TMPro;
 
 public class ExperienceManager : MonoBehaviour
 {
+    //variaables
     public int level;
     public int currentExp;
     public int expToLevel = 10;
@@ -16,6 +17,7 @@ public class ExperienceManager : MonoBehaviour
         UpdateUI();
     }
 
+    //tester for experience -- feel free to comment out
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -24,6 +26,7 @@ public class ExperienceManager : MonoBehaviour
         }
     }
 
+    //player gains XP on enemy death
     private void OnEnable()
     {
         EnemyHealth.OnEnemyDefeated += GainExperience;
@@ -34,6 +37,7 @@ public class ExperienceManager : MonoBehaviour
         EnemyHealth.OnEnemyDefeated -= GainExperience;
     }
 
+    //amount of XP gained
     public void GainExperience(int amount)
     {
         currentExp += amount;
@@ -44,6 +48,7 @@ public class ExperienceManager : MonoBehaviour
         UpdateUI();
     }
 
+    //player levels up at certain XP number
     private void LevelUp()
     {
         level++;
@@ -51,6 +56,7 @@ public class ExperienceManager : MonoBehaviour
         expToLevel = Mathf.RoundToInt(expToLevel * expGrowthMultiplier);
     }
 
+    //updates UI to display to player
     public void UpdateUI()
     {
         expSlider.maxValue = expToLevel;

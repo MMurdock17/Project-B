@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    //variables
     public Transform[] spawnPoints;
     public GameObject[] enemies;
     public float spawnCooldown = 10f;
 
     private float spawnTime;
 
+    //setting intial spawn time
     void Start()
     {
         spawnTime = spawnCooldown;
     }
 
+    //spawntime goes down until an enemy spawns at a random spawn point; spawn time resets
     void Update()
     {
        

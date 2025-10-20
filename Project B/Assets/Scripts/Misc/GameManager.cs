@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //setting up game over screen
     }
     public void GameOver()
     {

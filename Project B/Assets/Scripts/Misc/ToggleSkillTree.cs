@@ -8,6 +8,7 @@ public class ToggleSkillTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //skill tree appears when "1" is pressed; disappears when pressed again
         if (Input.GetButtonDown("ToggleSkillTree"))
         {
             if (skillTreeOpen)

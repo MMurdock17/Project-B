@@ -4,6 +4,8 @@ public class StatsManager : MonoBehaviour
 {
     public static StatsManager Instance;
 
+    //pulls all player stats into one game object to allow for easy editing during play testing
+
     [Header("Combat Stats")]
     public int damage;
     public float weaponRange;
