@@ -4,7 +4,7 @@ public class PlayerCombat : MonoBehaviour
 {
 	public Transform attackPoint;
 	public LayerMask enemyLayer;
-	
+	public AudioClip swordSound;
 	public Animator anim;
 	public float cooldown = 2;
 	private float timer;
@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
 		if (timer <= 0)
 		{
 			anim.SetBool("isAttacking", true);
-
+			SoundManager.instance.PlaySound(swordSound);
 			timer = cooldown;
 		}
 	}
