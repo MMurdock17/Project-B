@@ -14,7 +14,7 @@ public PlayerCombat playerCombat;
 
 private void Update()
 {
-    if (Input.GetButtonDown("Attack"))
+    if (Input.GetButtonDown("Attack") && playerCombat.enabled == true)
     {
         playerCombat.Attack();
     }
