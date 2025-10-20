@@ -24,8 +24,9 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
-            OnEnemyDefeated(expReward);
             Destroy(gameObject);
+            OnEnemyDefeated(expReward);
+            
         }
     }
 
