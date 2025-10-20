@@ -22,8 +22,8 @@ public class PlayerCombat : MonoBehaviour
 		if (timer <= 0)
 		{
 			anim.SetBool("isAttacking", true);
-			SoundManager.instance.PlaySound(swordSound);
 			timer = cooldown;
+			SoundManager.instance.PlaySound(swordSound);
 		}
 	}
 

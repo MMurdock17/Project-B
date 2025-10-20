@@ -25,17 +25,17 @@ public class SoundManager : MonoBehaviour
 		else if (instance != null && instance != this)
 			Destroy(gameObject);
 	}
-	public void PlaySound(AudioClip _sound)
+	public void PlaySound(AudioClip audioSound)
 	{
 		//Play sound effect once
-		source.PlayOneShot(_sound);
+		source.PlayOneShot(audioSound);
 	}
 
 	//Change sound effect volume
-	public void ChangeSoundVolume(float _change)
+	public void ChangeSoundVolume(float changeSound)
 	{
 		float currentVolume = PlayerPrefs.GetFloat("soundVolume");
-		currentVolume += _change;
+		currentVolume += changeSound;
 
 		if (currentVolume > 1)
 			currentVolume = 0;
@@ -49,10 +49,10 @@ public class SoundManager : MonoBehaviour
 	}
 
 	//Change music volume
-	public void ChangeMusicVolume(float _change)
+	public void ChangeMusicVolume(float changeSound)
 	{
 		float currentVolume = PlayerPrefs.GetFloat("musicVolume");
-		currentVolume += _change;
+		currentVolume += changeSound;
 
 		if (currentVolume > 1)
 			currentVolume = 0;
