@@ -6,6 +6,9 @@ public class PlayerHealth : MonoBehaviour
 	
 	public TMP_Text healthText;
 	public Animator healthTextAnim;
+	public GameManager gameManager;
+
+	private bool isDead;
 
 	private void Start()
 	{
@@ -20,9 +23,11 @@ public class PlayerHealth : MonoBehaviour
 
 		healthText.text = "HP: " + StatsManager.Instance.currentHealth + " / " + StatsManager.Instance.maxHealth;
 
-		if (StatsManager.Instance.currentHealth <= 0)
+		if (StatsManager.Instance.currentHealth <= 0 && !isDead)
 		{
+			isDead = true;
 			gameObject.SetActive(false);
+			gameManager.GameOver();
 		}
 	}
 }
